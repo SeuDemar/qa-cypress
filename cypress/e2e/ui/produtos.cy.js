@@ -1,5 +1,4 @@
 describe('Busca de Produtos - UI', () => {
-
   beforeEach(() => {
     ['vitor_produtos@teste.com', 'vitor_produtos2@teste.com', 'vitor_produtos3@teste.com', 'vitor_produtos4@teste.com', 'vitor_produtos5@teste.com'].forEach((email) => {
       cy.request({ method: 'GET', url: 'https://serverest.dev/usuarios', qs: { email } })

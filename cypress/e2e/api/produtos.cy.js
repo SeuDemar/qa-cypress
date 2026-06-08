@@ -1,5 +1,4 @@
 describe('Produtos - API', () => {
-
   it('Verificar que a API de produtos retorna status 200', () => {
     cy.request({
       method: 'GET',

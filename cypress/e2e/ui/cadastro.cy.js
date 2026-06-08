@@ -1,5 +1,4 @@
 describe('Cadastro de Usuário', () => {
-
   beforeEach(() => {
     cy.request({ method: 'GET', url: 'https://serverest.dev/usuarios', qs: { email: 'vitor_reg@teste.com' } })
       .then((res) => { if (res.body.quantidade > 0) cy.deleteUsuario('vitor_reg@teste.com') })

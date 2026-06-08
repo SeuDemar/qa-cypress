@@ -1,5 +1,4 @@
 describe('Tela de Login', () => {
-
   beforeEach(() => {
     ['vitor_login@teste.com', 'vitor_logout@teste.com', 'vitor_redirect@teste.com'].forEach((email) => {
       cy.request({ method: 'GET', url: 'https://serverest.dev/usuarios', qs: { email } })

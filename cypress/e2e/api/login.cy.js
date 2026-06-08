@@ -1,5 +1,4 @@
 describe('Login - API', () => {
-
   it('Login com credenciais válidas retorna status 200 e token', () => {
     cy.cadastraUsuario('Vitor Login API', 'vitor_loginapi@teste.com', 'teste123', 'false')
 

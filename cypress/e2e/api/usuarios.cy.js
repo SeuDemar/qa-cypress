@@ -1,5 +1,4 @@
 describe('Usuários - API', () => {
-
   beforeEach(() => {
     ['vitor_api_criar@teste.com', 'vitor_api_dup@teste.com', 'vitor_api_busca@teste.com', 'vitor_api_delete@teste.com'].forEach((email) => {
       cy.request({ method: 'GET', url: 'https://serverest.dev/usuarios', qs: { email } })
