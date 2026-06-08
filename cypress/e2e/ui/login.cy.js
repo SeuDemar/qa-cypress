@@ -1,5 +1,12 @@
 describe('Tela de Login', () => {
 
+  beforeEach(() => {
+    ['vitor_login@teste.com', 'vitor_logout@teste.com', 'vitor_redirect@teste.com'].forEach((email) => {
+      cy.request({ method: 'GET', url: 'https://serverest.dev/usuarios', qs: { email } })
+        .then((res) => { if (res.body.quantidade > 0) cy.deleteUsuario(email) })
+    })
+  })
+
   it('Login com sucesso', () => {
     cy.cadastraUsuario('Vitor Teste', 'vitor_login@teste.com', 'teste123', 'false')
 

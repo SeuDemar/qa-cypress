@@ -1,5 +1,12 @@
 describe('Busca de Produtos - UI', () => {
 
+  beforeEach(() => {
+    ['vitor_produtos@teste.com', 'vitor_produtos2@teste.com', 'vitor_produtos3@teste.com', 'vitor_produtos4@teste.com', 'vitor_produtos5@teste.com'].forEach((email) => {
+      cy.request({ method: 'GET', url: 'https://serverest.dev/usuarios', qs: { email } })
+        .then((res) => { if (res.body.quantidade > 0) cy.deleteUsuario(email) })
+    })
+  })
+
   it('Buscar por item existente', () => {
     cy.cadastraUsuario('Vitor Produtos', 'vitor_produtos@teste.com', 'teste123', 'false')
     cy.login_api('vitor_produtos@teste.com', 'teste123', 'home')
