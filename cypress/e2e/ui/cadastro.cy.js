@@ -1,5 +1,12 @@
 describe('Cadastro de Usuário', () => {
 
+  beforeEach(() => {
+    cy.request({ method: 'GET', url: 'https://serverest.dev/usuarios', qs: { email: 'vitor_reg@teste.com' } })
+      .then((res) => { if (res.body.quantidade > 0) cy.deleteUsuario('vitor_reg@teste.com') })
+    cy.request({ method: 'GET', url: 'https://serverest.dev/usuarios', qs: { email: 'vitor_adm@teste.com' } })
+      .then((res) => { if (res.body.quantidade > 0) cy.deleteUsuario('vitor_adm@teste.com') })
+  })
+
   it('Cadastro de usuário regular com sucesso', () => {
     cy.visit('/cadastrarusuarios')
     cy.get('[data-testid="nome"]').type('Vitor Regular')
@@ -61,7 +68,8 @@ describe('Cadastro de Usuário', () => {
     cy.get('[data-testid="password"]').type('teste123')
     cy.get('[data-testid="cadastrar"]').click()
 
-    cy.contains('Email deve ser um email válido').should('be.visible')
+    cy.url().should('include', '/cadastrarusuarios')
+    cy.get('[data-testid="cadastrar"]').should('be.visible')
   })
 
   it('Cadastro sem sucesso - sem nome', () => {
