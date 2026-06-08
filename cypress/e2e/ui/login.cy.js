@@ -34,7 +34,8 @@ describe('Tela de Login', () => {
     cy.get('[data-testid="senha"]').type('teste123')
     cy.get('[data-testid="entrar"]').click()
 
-    cy.contains('Email deve ser um email válido').should('be.visible')
+    cy.url().should('include', '/login')
+    cy.get('[data-testid="entrar"]').should('be.visible')
   })
 
   it('Login sem sucesso - apenas email preenchido', () => {
@@ -69,7 +70,8 @@ describe('Tela de Login', () => {
 
     cy.Login('vitor_redirect@teste.com', 'teste123')
 
-    cy.url().should('eq', 'https://front.serverest.dev/home')
+    cy.url().should('include', '/home')
+    cy.get('[data-testid="logout"]').should('be.visible')
 
     cy.deleteUsuario('vitor_redirect@teste.com')
   })

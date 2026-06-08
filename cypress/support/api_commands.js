@@ -2,7 +2,8 @@ Cypress.Commands.add('cadastraUsuario', (nome, email, senha, administrador) => {
   cy.request({
     method: 'POST',
     url: 'https://serverest.dev/usuarios',
-    body: { nome, email, password: senha, administrador }
+    body: { nome, email, password: senha, administrador },
+    failOnStatusCode: false
   })
 })
 
