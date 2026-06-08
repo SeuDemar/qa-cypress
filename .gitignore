@@ -1,0 +1,7 @@
+node_modules/
+.devin/
+docs/
+cypress/videos/
+cypress/screenshots/
+package-lock.json
+pnpm-lock.yaml

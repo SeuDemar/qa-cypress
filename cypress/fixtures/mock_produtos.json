@@ -1,0 +1,8 @@
+{
+  "quantidade": 3,
+  "produtos": [
+    { "nome": "Produto Mock A", "preco": 100, "descricao": "Descrição A", "quantidade": 10, "_id": "aaa111" },
+    { "nome": "Produto Mock B", "preco": 200, "descricao": "Descrição B", "quantidade": 20, "_id": "bbb222" },
+    { "nome": "Produto Mock C", "preco": 300, "descricao": "Descrição C", "quantidade": 30, "_id": "ccc333" }
+  ]
+}
