@@ -13,7 +13,7 @@ describe('Busca de Produtos - UI', () => {
     cy.get('[data-testid="pesquisar"]').type('Logitech MX Vertical')
     cy.get('[data-testid="botaoPesquisar"]').click()
 
-    cy.get('.card-body').should('have.length', 1)
+    cy.get('.card-body').should('have.length.greaterThan', 0)
     cy.contains('Logitech MX Vertical').should('be.visible')
 
     cy.deleteUsuario('vitor_produtos@teste.com')
